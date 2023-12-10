@@ -5,8 +5,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 const CountryList = () => {
   const [countries, setCountries] = useState([]);
-  
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [sortedCountries, setSortedCountries] = useState([]);
+
   const navigate = useNavigate();
+
   console.log(countries);
   useEffect(() => {
     const fetchData = async () => {
@@ -21,33 +24,35 @@ const CountryList = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const sortedArray = [...countries];
 
-  const findExtremePopulation = (populationComparator) => {
-    if (countries.length === 0) {
-      return [];
-    }
+    sortedArray.sort((a, b) => {
+      const populationA = a.population || 0;
+      const populationB = b.population || 0;
 
-    const sortedCountries = [...countries].sort((a, b) => {
-      const populationA = a.population?.population || 0;
-      const populationB = b.population?.population || 0;
-      return populationComparator(populationA, populationB);
+      return sortOrder === "asc"
+        ? populationA - populationB
+        : populationB - populationA;
     });
-    console.log(sortedCountries[0]);
-    return [sortedCountries[0]]; 
-  };
 
-  const mostPopulatedCountry = findExtremePopulation((a, b) => b - a);
-  console.log(mostPopulatedCountry);
-  const leastPopulatedCountry = findExtremePopulation((a, b) => a - b);
-  console.log(leastPopulatedCountry);
+    setSortedCountries(sortedArray);
+  }, [countries, sortOrder]);
 
   const handleLeastPopulatedClick = () => {
-    console.log(leastPopulatedCountry);
-    navigate("/least-populated", { state: { leastPopulatedCountry } });
+    const sortedArray = [...countries];
+    sortedArray.sort((a, b) => a.population - b.population);
+    navigate("/least-populated", {
+      state: { leastPopulatedCountry: sortedArray },
+    });
   };
+
   const handleMostPopulatedClick = () => {
-    console.log(mostPopulatedCountry);
-    navigate("/most-populated", { state: { mostPopulatedCountry } });
+    const sortedArray = [...countries];
+    sortedArray.sort((a, b) => b.population - a.population);
+    navigate("/most-populated", {
+      state: { mostPopulatedCountry: sortedArray },
+    });
   };
 
   return (

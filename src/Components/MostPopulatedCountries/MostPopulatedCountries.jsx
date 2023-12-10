@@ -13,11 +13,14 @@ const MostPopulatedCountries = () => {
   }
 
   return (
-    <div>
-      {mostPopulatedCountry.map((country) => (
-        <CountryCard key={country.cca3} country={country} />
-      ))}
-    </div>
+    <>
+      <h2 className="text-xl font-semibold mb-2">Most Populated</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+        {mostPopulatedCountry.map((country) => (
+          <CountryCard key={country.cca3} country={country} />
+        ))}
+      </div>
+    </>
   );
 };
 

@@ -2,6 +2,7 @@
 import React from "react";
 
 const CountryCard = ({ country }) => {
+  console.log(country.population);
   return (
     <div className="bg-white border rounded-lg overflow-hidden shadow-md m-4 max-w-xs">
       <div className="p-4">
