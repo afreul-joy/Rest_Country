@@ -39,6 +39,7 @@ const CountryList = () => {
     setSortedCountries(sortedArray);
   }, [countries, sortOrder]);
 
+
   const handleLeastPopulatedClick = () => {
     const sortedArray = [...countries];
     sortedArray.sort((a, b) => a.population - b.population);

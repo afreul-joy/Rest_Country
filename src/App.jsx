@@ -4,7 +4,7 @@ import Home from "./Components/Home/Home";
 import "./App.css";
 import MostPopulatedCountries from "./Components/MostPopulatedCountries/MostPopulatedCountries";
 import LeastPopulatedCountries from "./Components/LeastPopulatedCountries/LeastPopulatedCountries";
-import SortCountry from "./Components/SortCountry/SortCountry";
+
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/most-populated" element={<MostPopulatedCountries />} />
       <Route path="/least-populated" element={<LeastPopulatedCountries />} />
-      <Route path="/sort" element={<SortCountry/>} />
+ 
     </Routes>
   );
 }
