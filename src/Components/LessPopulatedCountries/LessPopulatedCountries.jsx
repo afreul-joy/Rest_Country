@@ -3,20 +3,20 @@ import { useLocation } from "react-router-dom";
 import CountryCard from "../CountryCard/CountryCard";
 import Pagination from "../Pagination/Pagination";
 
-const MostPopulatedCountries = () => {
+const LessPopulatedCountries = () => {
   const location = useLocation();
-  const { mostPopulatedCountry } = location.state;
+  const { LessPopulatedCountry } = location.state;
 
-  console.log(mostPopulatedCountry);
+  console.log(LessPopulatedCountry);
   // Check if LessPopulatedCountry is defined and is an array
-  if (!mostPopulatedCountry || !Array.isArray(mostPopulatedCountry)) {
+  if (!LessPopulatedCountry || !Array.isArray(LessPopulatedCountry)) {
     return <div>No data available</div>;
   }
 
   // Pagination
   const itemsPerPage = 8;
   // Update the number of total pages based on the filtered blogs
-  const totalPages = Math.ceil(mostPopulatedCountry.length / itemsPerPage);
+  const totalPages = Math.ceil(LessPopulatedCountry.length / itemsPerPage);
 
   // State to keep track of the current page
   const [currentPage, setCurrentPage] = useState(1);
@@ -24,7 +24,7 @@ const MostPopulatedCountries = () => {
   // Get the current page's data to display
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentData = mostPopulatedCountry.slice(
+  const currentData = LessPopulatedCountry.slice(
     indexOfFirstItem,
     indexOfLastItem
   );
@@ -37,7 +37,7 @@ const MostPopulatedCountries = () => {
   return (
     <>
       <h2 className="text-xl font-semibold mb-2 text-center p-2 bg-slate-300">
-        Most Populated Countries
+        Less Populated Countries
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8">
         {currentData.map((country) => (
@@ -55,4 +55,4 @@ const MostPopulatedCountries = () => {
   );
 };
 
-export default MostPopulatedCountries;
+export default LessPopulatedCountries;
