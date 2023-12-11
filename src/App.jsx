@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import "./App.css";
 import MostPopulatedCountries from "./Components/MostPopulatedCountries/MostPopulatedCountries";
-import LeastPopulatedCountries from "./Components/LeastPopulatedCountries/LeastPopulatedCountries";
+import LessPopulatedCountries from "./Components/LeastPopulatedCountries/LeastPopulatedCountries";
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/most-populated" element={<MostPopulatedCountries />} />
-      <Route path="/least-populated" element={<LeastPopulatedCountries />} />
+      <Route path="/less-populated" element={<LessPopulatedCountries />} />
  
     </Routes>
   );

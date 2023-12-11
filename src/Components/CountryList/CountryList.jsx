@@ -40,11 +40,11 @@ const CountryList = () => {
   }, [countries, sortOrder]);
 
 
-  const handleLeastPopulatedClick = () => {
+  const handleLessPopulatedClick = () => {
     const sortedArray = [...countries];
     sortedArray.sort((a, b) => a.population - b.population);
-    navigate("/least-populated", {
-      state: { leastPopulatedCountry: sortedArray },
+    navigate("/less-populated", {
+      state: { LessPopulatedCountry: sortedArray },
     });
   };
 
@@ -70,9 +70,9 @@ const CountryList = () => {
 
         <button
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded "
-          onClick={handleLeastPopulatedClick}
+          onClick={handleLessPopulatedClick}
         >
-          Least Populated Country
+          Less Populated Country
         </button>
       </div>
 

@@ -7,7 +7,7 @@ const MostPopulatedCountries = () => {
   const { mostPopulatedCountry } = location.state;
 
   console.log(mostPopulatedCountry);
-  // Check if leastPopulatedCountry is defined and is an array
+  // Check if LessPopulatedCountry is defined and is an array
   if (!mostPopulatedCountry || !Array.isArray(mostPopulatedCountry)) {
     return <div>No data available</div>;
   }
