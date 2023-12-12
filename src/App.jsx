@@ -6,6 +6,9 @@ import MostPopulatedCountries from "./Components/MostPopulatedCountries/MostPopu
 import LessPopulatedCountries from "./Components/LessPopulatedCountries/LessPopulatedCountries";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
+import Asia from "./Components/Asia/Asia";
+import Europe from "./Components/Europe/Europe";
+import Africa from "./Components/Africa/Africa";
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/most-populated" element={<MostPopulatedCountries />} />
         <Route path="/less-populated" element={<LessPopulatedCountries />} />
+        <Route path="/asia" element={<Asia />} />
+        <Route path="/europe" element={<Europe />} />
+        <Route path="/africa" element={<Africa />} />
       </Routes>
       <Footer></Footer>
     </>

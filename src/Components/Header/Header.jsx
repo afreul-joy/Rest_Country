@@ -20,18 +20,18 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link to="/about" className="text-white hover:text-gray-300">
-                About
+              <Link to="/asia" className="text-white hover:text-gray-300">
+                Asia
               </Link>
             </li>
             <li>
-              <Link to="/services" className="text-white hover:text-gray-300">
-                Services
+              <Link to="/europe" className="text-white hover:text-gray-300">
+                Europe
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="text-white hover:text-gray-300">
-                Contact
+              <Link to="/africa" className="text-white hover:text-gray-300">
+                Africa
               </Link>
             </li>
           </ul>

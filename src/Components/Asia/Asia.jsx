@@ -3,9 +3,8 @@ import axios from "axios";
 import CountryCard from "../CountryCard/CountryCard";
 import { Link, useNavigate } from "react-router-dom";
 import Pagination from "../Pagination/Pagination";
-import Banner from "../Banner/Banner";
 
-const CountryList = () => {
+const Asia = () => {
   const [countries, setCountries] = useState([]);
   const [sortOrder, setSortOrder] = useState("asc");
   const [sortedCountries, setSortedCountries] = useState([]);
@@ -13,12 +12,16 @@ const CountryList = () => {
 
   const navigate = useNavigate();
 
-  // console.log(countries);
+  console.log(countries);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("https://restcountries.com/v3.1/all");
-        setCountries(response.data);
+        // Filter only the countries in Asia
+        const asiaCountries = response.data.filter(country =>
+          country.region?.includes("Asia")
+        );
+        setCountries(asiaCountries);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -26,6 +29,7 @@ const CountryList = () => {
 
     fetchData();
   }, []);
+
 
   useEffect(() => {
     const sortedArray = [...countries];
@@ -123,8 +127,6 @@ const CountryList = () => {
         </div>
       </div>
 
-      <Banner></Banner>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-8">
         {currentData.map((country) => (
           <CountryCard key={country.cca3} country={country} />
@@ -142,4 +144,4 @@ const CountryList = () => {
   );
 };
 
-export default CountryList;
+export default Asia;
